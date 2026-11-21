@@ -17,7 +17,15 @@ function safeNext(next: string | undefined, fallback: string) {
 
 function Shell({ title, subtitle, children }: { title: string; subtitle: string; children: React.ReactNode }) {
   return (
-    <div className="mx-auto grid max-w-md px-4 py-10">
+    <div className="mx-auto w-full max-w-md px-4 py-8">
+      <div className="mb-6 text-center">
+        <Link href="/" className="inline-flex items-center gap-2.5 transition hover:opacity-90">
+          <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand text-white shadow-sm font-bold text-xl">
+            🍗
+          </span>
+          <span className="text-2xl font-black tracking-tight text-ink">chicken<span className="text-brand">mart</span></span>
+        </Link>
+      </div>
       <div className="card p-6 shadow-sm sm:p-8">
         <h1 className="text-2xl font-extrabold tracking-tight">{title}</h1>
         <p className="mt-1 text-sm text-muted">{subtitle}</p>
