@@ -81,7 +81,7 @@ export function RegisterForm({ next }: { next?: string }) {
     setBusy(true);
     setErr(null);
     try {
-      await post("/api/auth/register", { name: f.get("name"), phone: f.get("phone"), email: f.get("email"), password: f.get("password") });
+      await post("/api/auth/register", { name: f.get("name"), phone: f.get("phone"), password: f.get("password") });
       router.push(safeNext(next, "/"));
       router.refresh();
     } catch (e) {
@@ -105,12 +105,8 @@ export function RegisterForm({ next }: { next?: string }) {
           </div>
         </div>
         <div>
-          <label className="label" htmlFor="email">Email <span className="font-normal text-muted">(optional — needed to reset your password)</span></label>
-          <input id="email" name="email" type="email" autoComplete="email" className="input" />
-        </div>
-        <div>
-          <label className="label" htmlFor="password">Password</label>
-          <input id="password" name="password" type="password" required minLength={8} autoComplete="new-password" className="input" />
+          <label className="label" htmlFor="password">Create password</label>
+          <input id="password" name="password" type="password" required minLength={8} autoComplete="new-password" className="input" placeholder="Create a password" />
           <p className="mt-1 text-xs text-muted">At least 8 characters with letters and numbers.</p>
         </div>
         <button className="btn-primary w-full py-3" disabled={busy}>{busy ? "Creating account…" : "Sign up"}</button>
